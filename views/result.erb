@@ -4,13 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GAME IS ON !</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>~RESULT~</h1>
-    <h3>Player choice : <%= @player_choice %></h3>
-    <h3>Computer choice : <%= @computer_choice %></h3>
-    <h3>Result : <%= @outcome %></h3>
+    
+    <h3>Record :</h3>
+    <p>Won : <%= session[:win_count] %></p>
+    <p>Lose : <%= session[:lose_count] %></p>
+    <p>Draw : <%= session[:draw_count] %></p>
 
+    
+    <% session[:results].each_with_index do |results, index| %>
+        <p style="font-style: italic;">Round <%= index + 1 %></p>
+        <p><% results.each do |key, value| %>
+            <%= key %>: <%= value%><br>
+            <% end %>
+            </p>
+        <% end %>
+    
     <a href="/" >Restart Game</a>
 </body>
 </html>

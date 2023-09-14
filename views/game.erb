@@ -4,15 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GAME IS ON !</title>
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
-    <h1>Welcome <%= @name %> Lets Start !</h1>
-    <form action="/result" method="post">
-    <input type="radio" name="choice" value="rock">Rock
-    <input type="radio" name="choice" value="paper">Paper
-    <input type="radio" name="choice" value="scissors">Scissors
-        
-    <input type="submit" value="Submit"> 
+    <h1 style="text-decoration: underline;">Welcome <%= session[:name] %>, Lets Start !
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAuVJREFUWEfd2EvoF1UUwPHPf5EaSrkw8rHQBEVwEYQQopCggqmLaBGkZGkpRdrDSgQVI0OpFEXILLNAetDCNknoInGlBIZuDAwzCsW0RaCLtMLiyPz//Brm3pn5/R9IF2Yz9zy+c+495547PW6z0XOb8fjfAM3G43gQ9xRPBPs3XMG3+BQn2q5AmwiNwLN4CRMbOjqPndiHG010mgKtwFsY08RohUxE7WV8VqffBChA1tUZaji/CW/mZHNAMfcxnmzorKnYbryYEs4BvVfsmaaO2si9gc1VCimgtdjRxkMXsk/gk7JeFdDduIiRXThpo3IJk/Bnp1IVUIQzNt9QjNV4Nwc0DJcxeiho8HMRpT535QgtwqEMzC/4ClMwB/EBVeMvHMMZPFJ2WlJ4AKd635WBPsLyhJNfMa5jbhXeT8hGUkSF7h1Rse9LyEZd6tsiZaDTuD+huBfPdcyNRWzMqhERPNcxEbVnTUL2CBakIhTZNT6h+A3mdcw9VCxLlfjDONwxEcu8OGH3e0xPAV3H8ITizWI5v8ZUvI75GfhYhnAWIFHx70jIXkWUmlujvGTXMCqhOFivw+ddKaAfigwaLOdVds9iWgooUjX2xlCOo5ibAnobryVoopdZ2iXpF3gsobsVG1JAM3E8ofgHJuD3llCRtT9liugMfJcCik1+IZP6+/FMS6CDeDShE6CTO+eqDtdX8U7GabSiuxpCbcP6jOzz2FMHdCfizMr1z3FCR7P/d8JZtC4fYEkGJo6iuCzUth9hY2VhMBeIgI4mLjLzx6LwxXm1sDgm7q2JYsB+XpbJtbC5jGu4YkmxZLNfd+v4EE/313tJP7qA6AYqRx1QKG3BxgGA+qe4Tm3P2WoCFPpPFZnX7UUxuogX8GXdhzUFCjtxlY7N/kqLq3ScU7EXD2Qy8j+MbYA6i+ksLEO0n70/G2JJ4mdDNG3xkyGOmpN1EWmTZW1tDYh8NxEaEMf9ybJBBSgb/xcaX3MlNf3tlgAAAABJRU5ErkJggg=="/>
+    </h1>
+
+    <p style="font-size: 25px; font-family: cursive;">You have <%= session[:rounds]  %> rounds.</p>
+    <div class="user-choice">
+            <form action="/result" method="post" >
+            <p style="font-size: 25px; font-family: cursive;">Please select one</p>
+            <input type="radio" name="choice" value="rock" required="required">Rock
+            <input type="radio" name="choice" value="paper" required="required">Paper
+            <input type="radio" name="choice" value="scissors" required="required">Scissors
+    
+        <div class="user-submit">
+            <br><input type="submit" value="Submit" >
+        </div> 
+    </div>
+    </form>
 
 </body>
 </html>
