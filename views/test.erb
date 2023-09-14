@@ -12,10 +12,21 @@
     <h1>~ R E S U L T ~</h1>
     </header>
     <div class="record">
-        <h3>Record :</h3>
-        <p style="color: green;">Won : <%= session[:win_count] %></p>
-        <p style="color: red;">Lose : <%= session[:lose_count] %></p>
-        <p>Draw : <%= session[:draw_count] %></p>
+        <table class="center-table" border="5px" width="500px">
+            <tr>
+                <th colspan="3">RECORD</th>
+            </tr>
+            <tr>
+                <td style="color: green;">Won</td>
+                <td style="color: red;">Lose</td>
+                <td>Draw</td>
+            </tr>
+            <tr>
+                <td style="color: green;"><%= session[:win_count] %></td>
+                <td style="color: red;"><%= session[:lose_count] %></td>
+                <td><%= session[:draw_count] %></td>
+            </tr>
+        </table>
     </div>
     <div class="result"    
     <% session[:results].each_with_index do |results, index| %>

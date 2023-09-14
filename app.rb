@@ -19,7 +19,7 @@ end
 post '/result' do
     
     @player_choice = params[:choice]
-    @computer_choice = ["Rock", "Paper", "Scissors"].sample
+    @computer_choice = ["rock", "paper", "scissors"].sample
 
     results = check(@player_choice, @computer_choice)
     history = {Player: @player_choice, Computer: @computer_choice, results: @outcome}
@@ -33,20 +33,20 @@ post '/result' do
         session[:lose_count] = record.count("You lose!")
         session[:draw_count] = record.count("Draw!")
 
-        erb :result
+        erb :test
     end
   
 end
 
 def check(player, computer)
     case
-    when (player == 'Rock' && computer == 'Scissors') ||
-        (player == 'Scissors' && computer == 'paper') ||
-        (player == 'Paper' && computer == 'Rock')
+    when (player == 'rock' && computer == 'scissors') ||
+        (player == 'scissors' && computer == 'paper') ||
+        (player == 'paper' && computer == 'rock')
     @outcome = "You won!"
-    when (player == 'Scissors' && computer == 'Rock') ||
-        (player == 'Paper' && computer == 'Scissors') ||
-        (player == 'Rock' && computer == 'Paper')
+    when (player == 'scissors' && computer == 'rock') ||
+        (player == 'paper' && computer == 'scissors') ||
+        (player == 'rock' && computer == 'paper')
     @outcome = "You lose!"
     else
     @outcome = "Draw!"
